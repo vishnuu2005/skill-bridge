@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import Chat from './Chat';
 import Call from './Call';
+import LoadingSpinner from './LoadingSpinner';
 import './Jobs.css';
 
 const Jobs = () => {
@@ -241,7 +242,7 @@ const Jobs = () => {
       )}
       
       {loading ? (
-        <div className="loading-spinner">Loading jobs...</div>
+        <LoadingSpinner message="Loading jobs..." />
       ) : (
         <>
           {/* Recommended Jobs Section */}

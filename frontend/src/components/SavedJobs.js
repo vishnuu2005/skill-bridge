@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import Chat from './Chat';
 import Call from './Call';
+import LoadingSpinner from './LoadingSpinner';
 import './Jobs.css';
 
 const SavedJobs = () => {
@@ -124,7 +125,7 @@ const SavedJobs = () => {
       {message && <div className="message-banner">{message}</div>}
       
       {loading ? (
-        <div className="loading-spinner">Loading your saved jobs...</div>
+        <LoadingSpinner message="Loading your saved jobs..." />
       ) : (
         <div className="jobs-grid">
           {savedJobs.length === 0 ? (

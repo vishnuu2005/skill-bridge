@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import LoadingSpinner from './LoadingSpinner';
 import './SkillPortal.css';
 
 const SkillPortal = () => {
@@ -103,12 +104,7 @@ const SkillPortal = () => {
   };
 
   if (loading) {
-    return (
-      <div className="skill-portal-loading">
-        <div className="loading-spinner"></div>
-        <p>Loading skill portal...</p>
-      </div>
-    );
+    return <LoadingSpinner message="Loading skill portal..." />;
   }
 
   return (

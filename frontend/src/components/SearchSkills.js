@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
+import LoadingSpinner from './LoadingSpinner';
 
 const SearchSkills = () => {
   const [users, setUsers] = useState([]);
@@ -50,12 +51,7 @@ const SearchSkills = () => {
   }, [users, searchTerm, skillFilter, villageFilter]);
 
   if (loading) {
-    return (
-      <div className="skill-portal-loading">
-        <div className="loading-spinner"></div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <LoadingSpinner message="Loading users..." />;
   }
 
   return (

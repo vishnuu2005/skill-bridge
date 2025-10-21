@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import io from 'socket.io-client';
 import axios from 'axios';
+import LoadingSpinner from './LoadingSpinner';
 import './Chat.css';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
@@ -122,7 +123,7 @@ const Chat = ({ chatId, onClose }) => {
   if (loading) {
     return (
       <div className="chat-container">
-        <div className="chat-loading">Loading chat...</div>
+        <LoadingSpinner message="Loading chat..." size="small" />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
+import LoadingSpinner from './LoadingSpinner';
 import './Education.css';
 
 const Education = () => {
@@ -103,9 +104,7 @@ const Education = () => {
       </div>
 
       {loading ? (
-        <div className="loading-spinner">
-          <span>Loading education resources...</span>
-        </div>
+        <LoadingSpinner message="Loading education resources..." />
       ) : (
         <div className="resources-grid">
           {filteredResources.length === 0 ? (
