@@ -1,0 +1,192 @@
+.direct-chatlist-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  min-height: 500px;
+}
+
+.direct-chatlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.direct-chatlist-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.direct-chatlist-count {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.direct-chatlist-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.direct-chatlist-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.direct-chatlist-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.direct-chatlist-empty h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.direct-chatlist-empty p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.direct-chatlist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.direct-chatlist-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.direct-chatlist-item:hover {
+  background: #f8f9fa;
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.direct-chatlist-item-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.direct-chatlist-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.direct-chatlist-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.direct-chatlist-item-header h4 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.direct-chatlist-unread-badge {
+  background: #e74c3c;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.direct-chatlist-item-preview {
+  margin: 5px 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.direct-chatlist-item-time {
+  font-size: 0.8rem;
+  color: #adb5bd;
+}
+
+.direct-chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  max-height: 80vh;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.chat-user-email {
+  margin: 3px 0 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .direct-chatlist-container {
+    padding: 15px;
+    border-radius: 0;
+  }
+
+  .direct-chatlist-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .direct-chatlist-item {
+    padding: 12px;
+  }
+
+  .direct-chatlist-item-avatar {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .direct-chat-window {
+    height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
+    border-radius: 0;
+  }
+}

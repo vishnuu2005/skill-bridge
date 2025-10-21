@@ -20,6 +20,7 @@ import CreateJob from './components/CreateJob';
 import CreateResource from './components/CreateResource';
 import SavedJobs from './components/SavedJobs';
 import AdminDashboard from './components/AdminDashboard';
+import DirectChatList from './components/DirectChatList';
 
 // Context
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -46,6 +47,7 @@ function App() {
               <Route path="/add-skill" element={<ProtectedRoute><AddSkill /></ProtectedRoute>} />
               <Route path="/search-skills" element={<ProtectedRoute><SearchSkills /></ProtectedRoute>} />
               <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
+              <Route path="/messages" element={<ProtectedRoute><DirectChatList /></ProtectedRoute>} />
               <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
             </Routes>
           </main>

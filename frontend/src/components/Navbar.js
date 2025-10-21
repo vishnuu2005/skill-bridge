@@ -54,6 +54,9 @@ const Navbar = () => {
               <Link to="/skills" className="nav-link" onClick={() => setIsMenuOpen(false)}>
                 Skills
               </Link>
+              <Link to="/messages" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+                💬 Messages
+              </Link>
               <Link to="/profile" className="nav-link" onClick={() => setIsMenuOpen(false)}>
                 Profile
               </Link>

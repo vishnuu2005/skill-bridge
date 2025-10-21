@@ -8,6 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 const resourceRoutes = require("./routes/resourceRoutes");
 const chatRoutes = require("./routes/chatRoutes");
+const directChatRoutes = require("./routes/directChatRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
@@ -34,6 +35,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/resources', resourceRoutes);
 app.use('/api/chats', chatRoutes);
+app.use('/api/direct-chats', directChatRoutes);
 app.use('/api/admin', adminRoutes);
 
 app.get("/", (req, res) => {

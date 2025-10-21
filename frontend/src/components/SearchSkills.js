@@ -1,13 +1,41 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
 
 const SearchSkills = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [skillFilter, setSkillFilter] = useState('');
   const [villageFilter, setVillageFilter] = useState('');
+
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
+  const handleMessageUser = async (recipientId) => {
+    if (!user) {
+      alert('Please login to send messages');
+      navigate('/login');
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      await axios.post(
+        `${API_URL}/api/direct-chats/initialize`,
+        { recipientId },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      // Navigate to messages page
+      navigate('/messages');
+    } catch (error) {
+      console.error('Error initializing chat:', error);
+      alert('Failed to start chat. Please try again.');
+    }
+  };
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -109,6 +137,16 @@ const SearchSkills = () => {
                 ))}
               </div>
             </div>
+            {user && member._id !== user.id && (
+              <div className="user-actions">
+                <button 
+                  className="btn-message-user"
+                  onClick={() => handleMessageUser(member._id)}
+                >
+                  💬 Message
+                </button>
+              </div>
+            )}
           </div>
         ))}
       </div>
