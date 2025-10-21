@@ -5,8 +5,9 @@ A modern skill-sharing and job portal platform connecting skilled workers with o
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/vishnuu2005/skill-bridge)
 
 **Live Demo**: 
-- Frontend: https://frontend-qat4le47y-vishnus-projects-74225a00.vercel.app
-- Backend: https://skillbridge-backend.onrender.com (deploy to activate)
+- **Frontend**: https://skillbridge.vercel.app (rename project to get this URL)
+- **Current URL**: https://frontend-pqp4kv1vb-vishnus-projects-74225a00.vercel.app
+- **Backend API**: https://skillbridge-backend-wl2d.onrender.com
 
 ## 🌟 Features
 
