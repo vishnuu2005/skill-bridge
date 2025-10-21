@@ -1,0 +1,56 @@
+┌─────────────────────────────────────────────────────────────┐
+│                    GITHUB PUSH CHECKLIST                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  STEP 1: INSTALL GIT                                        │
+│  ☐ Download: https://git-scm.com/download/win              │
+│  ☐ Install with default settings                           │
+│  ☐ Restart VS Code                                          │
+│  ☐ Test: Run `git --version`                               │
+│                                                             │
+│  STEP 2: CONFIGURE GIT                                      │
+│  ☐ Run: git config --global user.name "Your Name"          │
+│  ☐ Run: git config --global user.email "your@email.com"    │
+│                                                             │
+│  STEP 3: CREATE GITHUB ACCOUNT                              │
+│  ☐ Go to: https://github.com/signup                        │
+│  ☐ Sign up and verify email                                │
+│  ☐ Login to GitHub                                          │
+│                                                             │
+│  STEP 4: CREATE ACCESS TOKEN (NOT PASSWORD!)                │
+│  ☐ GitHub → Settings → Developer settings                  │
+│  ☐ Personal access tokens → Tokens (classic)               │
+│  ☐ Generate new token                                       │
+│  ☐ Check "repo" permissions                                │
+│  ☐ Generate and COPY token (starts with ghp_)              │
+│                                                             │
+│  STEP 5: CREATE REPOSITORY                                  │
+│  ☐ Go to: https://github.com/new                           │
+│  ☐ Name: village-skill-portal                              │
+│  ☐ Don't check any boxes                                   │
+│  ☐ Create repository                                        │
+│                                                             │
+│  STEP 6: PUSH CODE                                          │
+│  ☐ cd e:\village-skill-portal                              │
+│  ☐ git init                                                 │
+│  ☐ git add .                                                │
+│  ☐ git commit -m "Initial commit"                          │
+│  ☐ git remote add origin https://github.com/USER/REPO.git  │
+│  ☐ git branch -M main                                       │
+│  ☐ git push -u origin main                                 │
+│     Username: your_github_username                          │
+│     Password: YOUR_TOKEN (not password!)                    │
+│                                                             │
+│  ✅ DONE! Code is on GitHub!                               │
+│                                                             │
+│  Next: See COMPLETE_DEPLOYMENT_GUIDE.md to deploy online   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+IMPORTANT NOTES:
+- Use Personal Access Token as password (starts with ghp_)
+- Never share your token publicly
+- Token is like a password - keep it safe!
+- If you lose it, create a new one
+
+TIME REQUIRED: ~20 minutes total

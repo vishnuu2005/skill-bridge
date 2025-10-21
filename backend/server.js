@@ -1,0 +1,86 @@
+const express = require("express");
+const cors = require("cors");
+const http = require("http");
+const socketIo = require("socket.io");
+require('dotenv').config();
+const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
+const jobRoutes = require("./routes/jobRoutes");
+const resourceRoutes = require("./routes/resourceRoutes");
+const chatRoutes = require("./routes/chatRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server, {
+  cors: {
+    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
+
+const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB
+connectDB();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/api/users', userRoutes);
+app.use('/api/jobs', jobRoutes);
+app.use('/api/resources', resourceRoutes);
+app.use('/api/chats', chatRoutes);
+app.use('/api/admin', adminRoutes);
+
+app.get("/", (req, res) => {
+  res.json({ message: "Village Skill Portal API is running!" });
+});
+
+// Socket.IO for real-time chat
+io.on('connection', (socket) => {
+  console.log('New client connected:', socket.id);
+
+  // Join a chat room
+  socket.on('join_chat', (chatId) => {
+    socket.join(chatId);
+    console.log(`Socket ${socket.id} joined chat: ${chatId}`);
+  });
+
+  // Leave a chat room
+  socket.on('leave_chat', (chatId) => {
+    socket.leave(chatId);
+    console.log(`Socket ${socket.id} left chat: ${chatId}`);
+  });
+
+  // Send message
+  socket.on('send_message', (data) => {
+    io.to(data.chatId).emit('receive_message', data);
+  });
+
+  // Typing indicator
+  socket.on('typing', (data) => {
+    socket.to(data.chatId).emit('user_typing', { 
+      chatId: data.chatId, 
+      userName: data.userName 
+    });
+  });
+
+  // Stop typing indicator
+  socket.on('stop_typing', (data) => {
+    socket.to(data.chatId).emit('user_stop_typing', { 
+      chatId: data.chatId 
+    });
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected:', socket.id);
+  });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

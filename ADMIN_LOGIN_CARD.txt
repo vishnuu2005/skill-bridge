@@ -1,0 +1,97 @@
+╔══════════════════════════════════════════════════════════════╗
+║                   ADMIN LOGIN QUICK CARD                     ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  ❌ ERROR: "Invalid Credentials"                            ║
+║  ✅ FIX: Create admin user first!                           ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  🚀 QUICK FIX (Copy & Paste in PowerShell):                 ║
+║                                                              ║
+║     cd e:\village-skill-portal                              ║
+║     node create-admin.js                                    ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  📧 DEFAULT ADMIN CREDENTIALS:                              ║
+║                                                              ║
+║     Email:    admin@village.com                             ║
+║     Password: Admin@123                                     ║
+║                                                              ║
+║     ⚠️  Capital A! @ symbol! Numbers!                       ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  📋 LOGIN STEPS:                                            ║
+║                                                              ║
+║     1. ✅ Run: node create-admin.js                         ║
+║     2. ✅ Go to: http://localhost:3000                      ║
+║     3. ✅ Click "Login"                                     ║
+║     4. ✅ Enter: admin@village.com                          ║
+║     5. ✅ Enter: Admin@123                                  ║
+║     6. ✅ Click "Login" button                              ║
+║     7. ✅ See purple "Admin" link!                          ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  🔧 IF STILL NOT WORKING:                                   ║
+║                                                              ║
+║     ❌ Backend not running?                                 ║
+║        → cd e:\village-skill-portal                         ║
+║        → npm start                                          ║
+║                                                              ║
+║     ❌ MongoDB not running?                                 ║
+║        → Open MongoDB Compass                               ║
+║        → Or run: net start MongoDB                          ║
+║                                                              ║
+║     ❌ Password wrong?                                      ║
+║        → It's: Admin@123 (not admin@123)                   ║
+║        → Capital A, @ symbol, 123                           ║
+║                                                              ║
+║     ❌ User already exists?                                 ║
+║        → Just run create-admin.js again                     ║
+║        → It will update existing user                       ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  📍 ALTERNATIVE: Make YOUR user admin                       ║
+║                                                              ║
+║     mongosh                                                 ║
+║     use village_skill_portal                                ║
+║     db.users.updateOne(                                     ║
+║       { email: "your@email.com" },                          ║
+║       { $set: { isAdmin: true } }                           ║
+║     )                                                       ║
+║     exit                                                    ║
+║                                                              ║
+║     Then login with YOUR email and password!                ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  ✅ SUCCESS INDICATORS:                                     ║
+║                                                              ║
+║     ✓ See purple "Admin" link in navigation                ║
+║     ✓ Click Admin → Dashboard opens                        ║
+║     ✓ See tabs: Overview, Users, Jobs                      ║
+║     ✓ See user statistics and data                         ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  📂 HELPER FILES CREATED:                                   ║
+║                                                              ║
+║     • create-admin.js         → Creates admin user          ║
+║     • setup-admin.bat         → Double-click to run         ║
+║     • make-user-admin.ps1     → Make existing user admin    ║
+║     • ADMIN_LOGIN_GUIDE.md    → Complete guide              ║
+║     • ADMIN_SETUP.md          → Setup instructions          ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  🎯 BOTTOM LINE:                                            ║
+║                                                              ║
+║     1. Run: node create-admin.js                            ║
+║     2. Login: admin@village.com / Admin@123                 ║
+║     3. Done! 🎉                                             ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
