@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
 import './Education.css';
 
 const Education = () => {
@@ -7,6 +8,8 @@ const Education = () => {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchResources = async () => {
@@ -113,7 +116,9 @@ const Education = () => {
             </div>
           ) : (
             filteredResources.map(resource => (
-              <ResourceCard key={resource._id} resource={resource} getTypeBadgeClass={getTypeBadgeClass} />
+              <ResourceCard key={resource._id} resource={resource} getTypeBadgeClass={getTypeBadgeClass} isAdmin={user?.isAdmin} onDelete={(id)=>{
+                setResources(prev => prev.filter(r => r._id !== id));
+              }} />
             ))
           )}
         </div>
@@ -123,7 +128,19 @@ const Education = () => {
 };
 
 // Resource Card Component
-const ResourceCard = ({ resource, getTypeBadgeClass }) => {
+const ResourceCard = ({ resource, getTypeBadgeClass, isAdmin, onDelete }) => {
+  const handleDelete = async () => {
+    if (!window.confirm('Are you sure you want to delete this resource? This action cannot be undone.')) return;
+    try {
+      await axios.delete(`/api/resources/${resource._id}`);
+      // notify parent to remove from list
+      onDelete && onDelete(resource._id);
+      alert('Resource deleted');
+    } catch (err) {
+      console.error('Delete failed', err);
+      alert('Failed to delete resource');
+    }
+  };
   return (
     <div className="resource-card">
       <span className={`resource-type-badge ${getTypeBadgeClass(resource.type)}`}>
@@ -175,6 +192,11 @@ const ResourceCard = ({ resource, getTypeBadgeClass }) => {
             <span>📖</span>
             Learn More
           </a>
+        </div>
+      )}
+      {isAdmin && (
+        <div className="resource-action admin-actions">
+          <button className="btn-delete" onClick={handleDelete}>🗑️ Delete</button>
         </div>
       )}
     </div>
