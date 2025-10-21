@@ -40,6 +40,15 @@ app.get("/", (req, res) => {
   res.json({ message: "Village Skill Portal API is running!" });
 });
 
+// Health check endpoint for deployment platforms
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ 
+    status: "ok", 
+    message: "Server is healthy",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Socket.IO for real-time chat
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);

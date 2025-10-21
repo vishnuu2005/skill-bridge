@@ -1,6 +1,12 @@
-# Village Skill Portal
+# SkillBridge
 
-A modern web application that connects skilled professionals in villages, built with React, Node.js, Express, and MongoDB.
+A modern skill-sharing and job portal platform connecting skilled workers with opportunities.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/vishnuu2005/skill-bridge)
+
+**Live Demo**: 
+- Frontend: https://frontend-qat4le47y-vishnus-projects-74225a00.vercel.app
+- Backend: https://skillbridge-backend.onrender.com (deploy to activate)
 
 ## 🌟 Features
 
