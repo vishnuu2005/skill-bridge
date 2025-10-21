@@ -138,13 +138,14 @@ exports.sendMessage = async (req, res) => {
     const user = await User.findById(userId);
     const isJobPoster = chat.jobPoster.toString() === userId;
 
-    // Add message
+    // Add message with admin status
     const newMessage = {
       sender: userId,
       senderName: user.name,
       content: content.trim(),
       timestamp: new Date(),
-      isRead: false
+      isRead: false,
+      isAdmin: user.isAdmin || false
     };
 
     chat.messages.push(newMessage);

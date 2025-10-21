@@ -157,11 +157,19 @@ const Chat = ({ chatId, onClose }) => {
           chat.messages.map((msg, index) => (
             <div
               key={index}
-              className={`chat-message ${msg.sender === user.id ? 'chat-message-own' : 'chat-message-other'}`}
+              className={`chat-message ${msg.sender === user.id ? 'chat-message-own' : 'chat-message-other'} ${msg.isAdmin ? 'chat-message-admin' : ''}`}
             >
               <div className="chat-message-content">
                 {msg.sender !== user.id && (
-                  <span className="chat-message-sender">{msg.senderName}</span>
+                  <div className="chat-message-header">
+                    <span className="chat-message-sender">{msg.senderName}</span>
+                    {msg.isAdmin && <span className="chat-admin-badge">ADMIN</span>}
+                  </div>
+                )}
+                {msg.sender === user.id && msg.isAdmin && (
+                  <div className="chat-message-header-own">
+                    <span className="chat-admin-badge">ADMIN</span>
+                  </div>
                 )}
                 <p>{msg.content}</p>
                 <span className="chat-message-time">

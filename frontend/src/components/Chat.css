@@ -137,6 +137,42 @@
   color: #667eea;
 }
 
+.chat-message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.chat-message-header-own {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.chat-admin-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(245, 87, 108, 0.3);
+}
+
+.chat-message-admin .chat-message-content {
+  border: 2px solid #f5576c;
+  box-shadow: 0 2px 12px rgba(245, 87, 108, 0.2);
+}
+
+.chat-message-admin.chat-message-own .chat-message-content {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+}
+
 .chat-message-content p {
   margin: 0;
   line-height: 1.5;

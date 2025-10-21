@@ -9,7 +9,8 @@ const messageSchema = new mongoose.Schema({
   senderName: { type: String, required: true },
   content: { type: String, required: true },
   timestamp: { type: Date, default: Date.now },
-  isRead: { type: Boolean, default: false }
+  isRead: { type: Boolean, default: false },
+  isAdmin: { type: Boolean, default: false }
 });
 
 const chatSchema = new mongoose.Schema({
