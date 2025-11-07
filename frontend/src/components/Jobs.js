@@ -18,6 +18,21 @@ const Jobs = () => {
   const [activeCall, setActiveCall] = useState(null);
   const { user } = useAuth();
 
+  const handleDeleteJob = async (jobId) => {
+    if (window.confirm('Are you sure you want to delete this job post?')) {
+      try {
+        await axios.delete(`/api/jobs/${jobId}`);
+        setJobs(jobs.filter(job => job._id !== jobId));
+        setMessage('Job deleted successfully');
+        setMessageType('success');
+      } catch (err) {
+        console.error('Failed to delete job', err);
+        setMessage(err.response?.data?.message || 'Failed to delete job');
+        setMessageType('error');
+      }
+    }
+  };
+
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -264,6 +279,7 @@ const Jobs = () => {
                     userSkills={userSkills}
                     showMatch={true}
                     currentUser={user}
+                    onDelete={handleDeleteJob}
                   />
                 ))}
               </div>
@@ -292,6 +308,7 @@ const Jobs = () => {
                     userSkills={userSkills}
                     showMatch={false}
                     currentUser={user}
+                    onDelete={handleDeleteJob}
                   />
                 ))}
               </div>
@@ -325,7 +342,7 @@ const Jobs = () => {
 };
 
 // Job Card Component
-const JobCard = ({ job, isSaved, onSave, onContact, onChat, onCall, userSkills, showMatch, currentUser }) => {
+const JobCard = ({ job, isSaved, onSave, onContact, onChat, onCall, userSkills, showMatch, currentUser, onDelete }) => {
   const matchedSkills = job.skills?.filter(skill => 
     userSkills.some(userSkill => userSkill.includes(skill.toLowerCase()) || skill.toLowerCase().includes(userSkill))
   ) || [];
@@ -401,6 +418,15 @@ const JobCard = ({ job, isSaved, onSave, onContact, onChat, onCall, userSkills, 
       )}
       
       <div className="job-actions">
+        {isOwnJob && (
+          <button 
+            className="action-button delete-button" 
+            onClick={() => onDelete(job._id)}
+            title="Delete this job post"
+          >
+            🗑️ Delete
+          </button>
+        )}
         {!isOwnJob ? (
           <>
             <button 

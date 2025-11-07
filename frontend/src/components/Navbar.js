@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
+import LanguageSwitcher from './LanguageSwitcher';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     logout();
@@ -28,37 +31,37 @@ const Navbar = () => {
 
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-            Home
+            {t('common.welcome')}
           </Link>
           
           {user ? (
             <>
               <Link to="/dashboard" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Dashboard
+                {t('common.dashboard')}
               </Link>
               <Link to="/jobs" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Jobs
+                {t('common.jobs')}
               </Link>
               <Link to="/saved-jobs" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Saved Jobs
+                {t('jobs.savedJobs')}
               </Link>
               <Link to="/education" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Education
+                {t('common.education')}
               </Link>
               <Link to="/create-job" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Post Job
+                {t('jobs.createJob')}
               </Link>
               <Link to="/create-resource" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Add Resource
+                {t('common.resources')}
               </Link>
               <Link to="/skills" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Skills
+                {t('profile.skills')}
               </Link>
               <Link to="/messages" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                💬 Messages
+                💬 {t('common.chat')}
               </Link>
               <Link to="/profile" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Profile
+                {t('common.profile')}
               </Link>
               {user.isAdmin && (
                 <Link to="/admin" className="nav-link admin-link" onClick={() => setIsMenuOpen(false)}>
@@ -66,17 +69,19 @@ const Navbar = () => {
                 </Link>
               )}
               <button className="nav-button logout-btn" onClick={handleLogout}>
-                Logout
+                {t('common.logout')}
               </button>
+              <LanguageSwitcher />
             </>
           ) : (
             <>
               <Link to="/login" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                Login
+                {t('common.login')}
               </Link>
               <Link to="/register" className="nav-button register-btn" onClick={() => setIsMenuOpen(false)}>
-                Register
+                {t('common.register')}
               </Link>
+              <LanguageSwitcher />
             </>
           )}
         </div>

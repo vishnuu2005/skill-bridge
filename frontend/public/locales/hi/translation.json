@@ -1,0 +1,55 @@
+{
+  "common": {
+    "welcome": "स्किल ब्रिज में आपका स्वागत है",
+    "login": "लॉगिन",
+    "register": "रजिस्टर",
+    "logout": "लॉगआउट",
+    "search": "खोजें",
+    "profile": "प्रोफाइल",
+    "jobs": "नौकरियां",
+    "chat": "चैट",
+    "community": "समुदाय",
+    "resources": "संसाधन",
+    "education": "शिक्षा",
+    "settings": "सेटिंग्स",
+    "language": "भाषा"
+  },
+  "auth": {
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "noAccount": "खाता नहीं है?",
+    "haveAccount": "पहले से खाता है?",
+    "signUp": "साइन अप",
+    "signIn": "साइन इन"
+  },
+  "jobs": {
+    "createJob": "नौकरी बनाएं",
+    "searchJobs": "नौकरियां खोजें",
+    "savedJobs": "सहेजी गई नौकरियां",
+    "jobTitle": "नौकरी का शीर्षक",
+    "company": "कंपनी",
+    "location": "स्थान",
+    "description": "विवरण",
+    "requirements": "आवश्यकताएं",
+    "apply": "अभी आवेदन करें",
+    "save": "नौकरी सहेजें"
+  },
+  "skills": {
+    "addSkill": "कौशल जोड़ें",
+    "searchSkills": "कौशल खोजें",
+    "skillName": "कौशल का नाम",
+    "experience": "अनुभव",
+    "level": "स्तर"
+  },
+  "profile": {
+    "editProfile": "प्रोफाइल संपादित करें",
+    "name": "नाम",
+    "about": "परिचय",
+    "skills": "कौशल",
+    "education": "शिक्षा",
+    "experience": "अनुभव",
+    "save": "परिवर्तन सहेजें"
+  }
+}

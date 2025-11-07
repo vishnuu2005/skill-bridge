@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+import './i18n/i18n';
 
 // Components
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import LanguageSwitcher from './components/LanguageSwitcher';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
@@ -21,6 +23,7 @@ import CreateResource from './components/CreateResource';
 import SavedJobs from './components/SavedJobs';
 import AdminDashboard from './components/AdminDashboard';
 import DirectChatList from './components/DirectChatList';
+import Messages from './components/Messages';
 
 // Context
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -45,6 +48,7 @@ function App() {
               <Route path="/create-resource" element={<ProtectedRoute><CreateResource /></ProtectedRoute>} />
               <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               <Route path="/add-skill" element={<ProtectedRoute><AddSkill /></ProtectedRoute>} />
+              <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
               <Route path="/search-skills" element={<ProtectedRoute><SearchSkills /></ProtectedRoute>} />
               <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
               <Route path="/messages" element={<ProtectedRoute><DirectChatList /></ProtectedRoute>} />

@@ -1,0 +1,55 @@
+{
+  "common": {
+    "welcome": "Welcome to Skill Bridge",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "search": "Search",
+    "profile": "Profile",
+    "jobs": "Jobs",
+    "chat": "Chat",
+    "community": "Community",
+    "resources": "Resources",
+    "education": "Education",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+  "jobs": {
+    "createJob": "Create Job",
+    "searchJobs": "Search Jobs",
+    "savedJobs": "Saved Jobs",
+    "jobTitle": "Job Title",
+    "company": "Company",
+    "location": "Location",
+    "description": "Description",
+    "requirements": "Requirements",
+    "apply": "Apply Now",
+    "save": "Save Job"
+  },
+  "skills": {
+    "addSkill": "Add Skill",
+    "searchSkills": "Search Skills",
+    "skillName": "Skill Name",
+    "experience": "Experience",
+    "level": "Level"
+  },
+  "profile": {
+    "editProfile": "Edit Profile",
+    "name": "Name",
+    "about": "About",
+    "skills": "Skills",
+    "education": "Education",
+    "experience": "Experience",
+    "save": "Save Changes"
+  }
+}

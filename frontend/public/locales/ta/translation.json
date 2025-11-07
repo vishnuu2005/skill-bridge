@@ -1,0 +1,55 @@
+{
+  "common": {
+    "welcome": "ஸ்கில் பிரிட்ஜிற்கு வரவேற்கிறோம்",
+    "login": "உள்நுழைய",
+    "register": "பதிவு செய்ய",
+    "logout": "வெளியேறு",
+    "search": "தேடு",
+    "profile": "சுயவிவரம்",
+    "jobs": "வேலைகள்",
+    "chat": "அரட்டை",
+    "community": "சமூகம்",
+    "resources": "வளங்கள்",
+    "education": "கல்வி",
+    "settings": "அமைப்புகள்",
+    "language": "மொழி"
+  },
+  "auth": {
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+    "forgotPassword": "கடவுச்சொல் மறந்துவிட்டதா?",
+    "noAccount": "கணக்கு இல்லையா?",
+    "haveAccount": "ஏற்கனவே கணக்கு உள்ளதா?",
+    "signUp": "பதிவு செய்க",
+    "signIn": "உள்நுழைக"
+  },
+  "jobs": {
+    "createJob": "வேலை உருவாக்கு",
+    "searchJobs": "வேலைகளைத் தேடு",
+    "savedJobs": "சேமித்த வேலைகள்",
+    "jobTitle": "வேலையின் பெயர்",
+    "company": "நிறுவனம்",
+    "location": "இடம்",
+    "description": "விளக்கம்",
+    "requirements": "தேவைகள்",
+    "apply": "இப்போது விண்ணப்பி",
+    "save": "வேலையை சேமி"
+  },
+  "skills": {
+    "addSkill": "திறன் சேர்",
+    "searchSkills": "திறன்களைத் தேடு",
+    "skillName": "திறன் பெயர்",
+    "experience": "அனுபவம்",
+    "level": "நிலை"
+  },
+  "profile": {
+    "editProfile": "சுயவிவரத்தை திருத்து",
+    "name": "பெயர்",
+    "about": "பற்றி",
+    "skills": "திறன்கள்",
+    "education": "கல்வி",
+    "experience": "அனுபவம்",
+    "save": "மாற்றங்களை சேமி"
+  }
+}

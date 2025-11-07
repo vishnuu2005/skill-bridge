@@ -8,7 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 const resourceRoutes = require("./routes/resourceRoutes");
 const chatRoutes = require("./routes/chatRoutes");
-const directChatRoutes = require("./routes/directChatRoutes");
+const messageRoutes = require("./routes/messageRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
@@ -35,7 +35,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/resources', resourceRoutes);
 app.use('/api/chats', chatRoutes);
-app.use('/api/direct-chats', directChatRoutes);
+app.use('/api/messages', messageRoutes);
 app.use('/api/admin', adminRoutes);
 
 app.get("/", (req, res) => {
@@ -55,7 +55,19 @@ app.get("/api/health", (req, res) => {
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);
 
-  // Join a chat room
+  // Join a user's room for direct messages
+  socket.on('join_user_room', (userId) => {
+    socket.join(`user_${userId}`);
+    console.log(`User ${userId} joined their room`);
+  });
+
+  // Handle direct messages
+  socket.on('send_direct_message', (data) => {
+    const { receiverId, message } = data;
+    io.to(`user_${receiverId}`).emit('receive_direct_message', message);
+  });
+
+  // Join a chat room (for job applications)
   socket.on('join_chat', (chatId) => {
     socket.join(chatId);
     console.log(`Socket ${socket.id} joined chat: ${chatId}`);

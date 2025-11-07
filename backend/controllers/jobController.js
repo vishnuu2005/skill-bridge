@@ -50,8 +50,15 @@ const listJobs = async (req, res) => {
     const filter = { isActive: true };
     if (village) filter.village = village;
     if (skill) filter.skills = { $in: [skill] };
-    const jobs = await Job.find(filter).sort({ createdAt: -1 });
-    res.json(jobs);
+    const jobs = await Job.find(filter).sort({ createdAt: -1 }).populate('postedBy', 'name phone');
+    // Transform the jobs to include poster details
+    const transformedJobs = jobs.map(job => ({
+      ...job.toObject(),
+      postedByName: job.postedBy?.name,
+      postedByPhone: job.postedBy?.phone,
+      postedBy: job.postedBy?._id // Keep only the ID for comparing ownership
+    }));
+    res.json(transformedJobs);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -94,5 +101,33 @@ const matchJobs = async (req, res) => {
   }
 };
 
-module.exports = { createJob, listJobs, getJob, matchJobs };
+// Delete a job
+const deleteJob = async (req, res) => {
+  try {
+    const jobId = req.params.id;
+    const userId = req.user?.id;
+
+    if (!userId) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    const job = await Job.findById(jobId);
+    if (!job) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
+
+    // Check if the user is the one who posted the job
+    if (job.postedBy.toString() !== userId) {
+      return res.status(403).json({ message: 'Not authorized to delete this job' });
+    }
+
+    await Job.findByIdAndDelete(jobId);
+    res.json({ message: 'Job deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting job:', error);
+    res.status(500).json({ message: 'Error deleting job' });
+  }
+};
+
+module.exports = { createJob, listJobs, getJob, matchJobs, deleteJob };
 

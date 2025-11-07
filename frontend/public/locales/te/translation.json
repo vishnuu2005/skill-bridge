@@ -1,0 +1,55 @@
+{
+  "common": {
+    "welcome": "స్కిల్ బ్రిడ్జ్‌కి స్వాగతం",
+    "login": "లాగిన్",
+    "register": "రిజిస్టర్",
+    "logout": "లాగ్అవుట్",
+    "search": "వెతుకు",
+    "profile": "ప్రొఫైల్",
+    "jobs": "ఉద్యోగాలు",
+    "chat": "చాట్",
+    "community": "కమ్యూనిటీ",
+    "resources": "వనరులు",
+    "education": "విద్య",
+    "settings": "సెట్టింగ్‌లు",
+    "language": "భాష"
+  },
+  "auth": {
+    "email": "ఇమెయిల్",
+    "password": "పాస్‌వర్డ్",
+    "confirmPassword": "పాస్‌వర్డ్ నిర్ధారించండి",
+    "forgotPassword": "పాస్‌వర్డ్ మర్చిపోయారా?",
+    "noAccount": "ఖాతా లేదా?",
+    "haveAccount": "ఖాతా ఉందా?",
+    "signUp": "సైన్ అప్",
+    "signIn": "సైన్ ఇన్"
+  },
+  "jobs": {
+    "createJob": "ఉద్యోగం సృష్టించు",
+    "searchJobs": "ఉద్యోగాలను వెతుకు",
+    "savedJobs": "సేవ్ చేసిన ఉద్యోగాలు",
+    "jobTitle": "ఉద్యోగ శీర్షిక",
+    "company": "కంపెనీ",
+    "location": "ప్రదేశం",
+    "description": "వివరణ",
+    "requirements": "అర్హతలు",
+    "apply": "దరఖాస్తు చేయండి",
+    "save": "ఉద్యోగాన్ని సేవ్ చేయండి"
+  },
+  "skills": {
+    "addSkill": "నైపుణ్యం జోడించు",
+    "searchSkills": "నైపుణ్యాలను వెతుకు",
+    "skillName": "నైపుణ్య పేరు",
+    "experience": "అనుభవం",
+    "level": "స్థాయి"
+  },
+  "profile": {
+    "editProfile": "ప్రొఫైల్ సవరించు",
+    "name": "పేరు",
+    "about": "గురించి",
+    "skills": "నైపుణ్యాలు",
+    "education": "విద్య",
+    "experience": "అనుభవం",
+    "save": "మార్పులను సేవ్ చేయండి"
+  }
+}
